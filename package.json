@@ -1,6 +1,6 @@
 {
   "name": "quadrigacx-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Command line tool to fetch BTC, ETH, and LTC price",
   "main": "./src/index.js",
   "bin": {
@@ -29,8 +29,8 @@
     "url": "git+https://github.com/dnshi/quadrigacx-cli.git"
   },
   "keywords": [
-    "currency",
-    "rates"
+    "quadrigacx",
+    "cli"
   ],
   "bugs": {
     "url": "https://github.com/dnshi/quadrigacx-cli/issues"
