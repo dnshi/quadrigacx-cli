@@ -11,36 +11,40 @@ const r2 = require('r2')
 const Table = require('cli-table2')
 const program = require('commander')
 
-const getBookUrl = book => `https://api.quadrigacx.com/v2/ticker?book=${book}`
-const getCurrentTradingInformation = book => r2(getBookUrl(book)).json
-const books = [
-  'btc_cad',
-  'eth_cad',
-  'ltc_cad',
-]
+const getBookUrl = (book) => `https://api.quadrigacx.com/v2/ticker?book=${book}`
+const getCurrentTradingInformation = (book) => r2(getBookUrl(book)).json
+const books = ['btc_cad', 'eth_cad', 'ltc_cad']
 
-program
-  .version(require('../package.json').version)
-  .parse(process.argv)
+program.version(require('../package.json').version).parse(process.argv)
 
-init()
-
-async function init() {
-  try {
-    const results = await Promise.all(books.map(getCurrentTradingInformation))
+Promise.all(books.map(getCurrentTradingInformation))
+  .then((results) => {
     const table = new Table({
-      head: ['Coin', 'Price CAD', 'Buy Price', 'Sell Price', 'High', 'Low'].map(title => title.yellow),
+      head: ['Coin', 'Price CAD', 'Buy Price', 'Sell Price', 'High', 'Low'].map(
+        (title) => title.yellow
+      ),
     })
 
-    table.push(...results.map(({
-      last, bid, ask, high, low,
-    }, i) => [books[i].replace(/_cad/g, '').toUpperCase(), last, bid, ask, high, low]))
+    table.push(
+      ...results.map(({ last, bid, ask, high, low }, i) => [
+        books[i].replace(/_cad/g, '').toUpperCase(),
+        last,
+        bid,
+        ask,
+        high,
+        low,
+      ])
+    )
 
     console.log()
     console.log(table.toString())
-    console.log(`Data source from quadrigacx.com at ${new Date().toLocaleString().split(', ')[1]}`)
-  } catch (error) {
+    console.log(
+      `Data source from quadrigacx.com at ${
+        new Date().toLocaleString().split(', ')[1]
+      }`
+    )
+  })
+  .catch((error) => {
     console.error('⚠️  Cannot fetch data'.bold.red)
     console.log(error)
-  }
-}
+  })

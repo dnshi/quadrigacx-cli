@@ -7,7 +7,7 @@
     "cx": "./src/index.js"
   },
   "scripts": {
-    "lint": "eslint index.js",
+    "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dean Shi <dean.xiaoshi@gmail.com>",
@@ -19,10 +19,9 @@
     "r2": "^2.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.15.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0"
+    "eslint": "^4.19.1",
+    "eslint-config-reducer": "^0.2.3",
+    "prettier": "^1.11.1"
   },
   "repository": {
     "type": "git",
