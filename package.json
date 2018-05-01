@@ -14,14 +14,14 @@
   "license": "MIT",
   "dependencies": {
     "cli-table2": "^0.2.0",
-    "colors": "^1.1.2",
-    "commander": "^2.12.2",
-    "r2": "^2.0.0"
+    "colors": "^1.2.3",
+    "commander": "^2.15.1",
+    "r2": "^2.0.1"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
-    "eslint-config-reducer": "^0.2.3",
-    "prettier": "^1.11.1"
+    "eslint-config-reducer": "^0.2.6",
+    "prettier": "^1.12.1"
   },
   "repository": {
     "type": "git",
