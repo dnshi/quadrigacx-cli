@@ -39,9 +39,9 @@ Promise.all(books.map(getCurrentTradingInformation))
     console.log()
     console.log(table.toString())
     console.log(
-      `Data source from quadrigacx.com at ${
-        new Date().toLocaleString().split(', ')[1]
-      }`
+      `Data source from quadrigacx.com at ${new Date().toLocaleString('CA', {
+        hour12: false,
+      })}`
     )
   })
   .catch((error) => {
