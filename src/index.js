@@ -8,7 +8,7 @@
 require('colors')
 
 const r2 = require('r2')
-const Table = require('cli-table2')
+const Table = require('cli-table3')
 const program = require('commander')
 
 const getBookUrl = (book) => `https://api.quadrigacx.com/v2/ticker?book=${book}`
